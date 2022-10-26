@@ -3,14 +3,11 @@ import Constants from 'expo-constants';
 
 import Title from '../components/Title'
 import Card from '../components/Card'
-
-import { useNavigation } from '@react-navigation/native';
 import useAxios from 'axios-hooks';
 import { useContext } from 'react';
 import { FavoriteContext } from '../contexts/FavoriteContext';
 
 export default function Home() {
-  const navigation = useNavigation()
   const url = "https://api.themoviedb.org/3/trending/movie/week?api_key=1e922667481ab207d642450b0efb461e"
   const [{ data, loading }] = useAxios(url)
   const { quantidade } = useContext(FavoriteContext)
@@ -31,7 +28,6 @@ export default function Home() {
       <FlatList horizontal data={filmes} renderItem={({ item }) => <Card filme={item} />} />
 
       <Title text={"Favoritos " + quantidade} />
-      <Title text="Dramas" />
     </View>
   );
 }
