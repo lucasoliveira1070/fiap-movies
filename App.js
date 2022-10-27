@@ -23,7 +23,7 @@ export default function App() {
             )
           }} />
 
-          <Tab.Screen name="About" component={About} options={{
+          <Tab.Screen name="Sobre" component={About} options={{
             tabBarIcon: () => (
               <AntDesign name="infocirlce" size={24} color="black" />
             )
@@ -34,7 +34,7 @@ export default function App() {
             )
           }} />
 
-          <Tab.Screen name="Recentlys" component={Recently} options={{
+          <Tab.Screen name="Recentes" component={Recently} options={{
             tabBarIcon: () => (
               <MaterialIcons name="view-array" size={24} color="black" />
             )

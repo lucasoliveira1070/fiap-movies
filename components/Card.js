@@ -7,9 +7,9 @@ import { useNavigation } from '@react-navigation/native'
 export default function Card({ filme }) {
   const poster = { uri: 'https://www.themoviedb.org/t/p/w200/' + filme.poster_path }
   const [favorito, setFavorito] = useState(false)
-  const { adicionarFavorito, removerFavorito } = useContext(FavoriteContext)
+  const { adicionarFavorito, removerFavorito, adicionarUltimosVisitados } = useContext(FavoriteContext)
   const navigation = useNavigation();
-  
+
   function favoritar() {
     setFavorito(!favorito)
     if (!favorito) {
@@ -18,8 +18,8 @@ export default function Card({ filme }) {
       removerFavorito(filme)
     }
   }
-
   const handleMovieDetail = () => {
+    adicionarUltimosVisitados(filme);
     navigation.navigate('Details', { filme: filme })
   }
 

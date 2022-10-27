@@ -16,13 +16,13 @@ export default function Details() {
         <Image resizeMode='contain' style={styles.heroimage} source={poster} />
       </View>
       <View style={styles.viewDetail}>
-        <Text style={styles.detail}>{filme.title}</Text>
+        <Text style={styles.detailTitle}>{filme.title}</Text>
         <Text style={styles.detail}>{filme.overview}</Text>
-        <Text style={styles.detail}>{filme.release_date}</Text>
-        <Text style={styles.detail}>{filme.vote_average}</Text>
+        <Text style={styles.detail}>Data de Lançamento:  {filme.release_date}</Text>
+        <Text style={styles.detail}>Avaliação:  {filme.vote_average.toFixed(1)}</Text>
       </View>
       <TouchableOpacity style={{ backgroundColor: '#F06', borderRadius: 10, padding: 8, marginTop: 20, width: 100 }} onPress={() => navigation.goBack()}>
-        <Text style={styles.text}>Voltar</Text>
+        <Text style={styles.buttonText}>Voltar</Text>
       </TouchableOpacity>
 
     </View>
@@ -36,11 +36,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  text: {
+  buttonText: {
     color: '#FFF',
     fontSize: 16,
     fontWeight: 'bold',
-    alignSelf: 'center'
+    alignSelf: 'center',
+  },
+  text: {
+    color: '#FFF',
+    fontSize: 30,
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    marginBottom: 15
   },
   heroimage: {
     width: '100%',
@@ -56,7 +63,14 @@ const styles = StyleSheet.create({
   },
   detail: {
     color: 'white',
-    margin: 8
+    margin: 8,
+    fontWeight: 'bold'
+  },
+  detailTitle: {
+    color: 'white',
+    margin: 8,
+    fontSize: 18,
+    fontWeight: 'bold'
   }
 });
 

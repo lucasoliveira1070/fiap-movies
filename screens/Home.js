@@ -4,18 +4,14 @@ import Constants from 'expo-constants';
 import Title from '../components/Title'
 import Card from '../components/Card'
 import useAxios from 'axios-hooks';
-import { useContext } from 'react';
-import { FavoriteContext } from '../contexts/FavoriteContext';
 
 export default function Home() {
   const url = "https://api.themoviedb.org/3/trending/movie/week?api_key=1e922667481ab207d642450b0efb461e"
   const [{ data, loading }] = useAxios(url)
-  const { quantidade } = useContext(FavoriteContext)
 
   if (loading) return <Text>carregando filmes...</Text>
-
   const filmes = data.results
-
+  
   return (
     <View style={styles.container}>
       <View>
@@ -26,9 +22,7 @@ export default function Home() {
       <Title text="Filmes em Alta" />
 
       <FlatList horizontal data={filmes} renderItem={({ item }) => <Card filme={item} />} />
-
-      <Title text={"Favoritos " + quantidade} />
-    </View>
+     </View>
   );
 }
 
@@ -44,7 +38,7 @@ const styles = StyleSheet.create({
   },
   heroimage: {
     width: '100%',
-    height: 200,
+    height: 170,
     zIndex: -1
   },
   button: {
